@@ -1,0 +1,2691 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کیف بالی | فروشگاه تخصصی کیف‌های زنانه</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e83e8c;
+            --secondary-color: #6f42c1;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --info-color: #17a2b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Tahoma', Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background-color: #fef6f9;
+            color: #333;
+        }
+        
+        .top-bar {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-left: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            position: relative;
+        }
+        
+        nav ul li {
+            margin-right: 1.5rem;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            display: block;
+        }
+        
+        nav ul li a:hover {
+            border-bottom: 2px solid white;
+        }
+        
+        /* منوی آبشاری */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            z-index: 1;
+        }
+        
+        .dropdown-menu a {
+            color: var(--dark-color) !important;
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #eee;
+        }
+        
+        nav ul li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        /* جستجو */
+        .search-container {
+            display: flex;
+            margin-left: 1rem;
+        }
+        
+        .search-input {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            width: 250px;
+        }
+        
+        .search-btn {
+            background: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            padding: 0 1rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        .products-section {
+            padding: 3rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--success-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-badge.sale {
+            background-color: var(--primary-color);
+        }
+        
+        .product-badge.hot {
+            background-color: var(--warning-color);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        .price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        
+        .add-to-cart {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .add-to-cart i {
+            margin-left: 0.5rem;
+        }
+        
+        .add-to-cart:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        .wishlist-btn.active {
+            color: var(--primary-color);
+        }
+        
+        .compare-btn.active {
+            color: var(--secondary-color);
+        }
+        
+        /* سبد خرید */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        
+        .cart-sidebar.active {
+            right: 0;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-items {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-left: 1rem;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-item-price {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .remove-item {
+            color: #ff6b6b;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        
+        .cart-total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .checkout-btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* صفحه محصول */
+        .product-page {
+            display: none;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        
+        .product-details {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .product-gallery {
+            flex: 1;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .product-info-container {
+            flex: 1;
+        }
+        
+        .product-page-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .product-page-price {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-page-description {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .product-meta {
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-meta span {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-meta i {
+            margin-left: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .back-to-products {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        /* صفحات جدید */
+        .page {
+            display: none;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* صفحه ورود و ثبت نام */
+        .auth-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .auth-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        .auth-links {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .auth-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        /* صفحه سوالات متداول */
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            display: none;
+            padding-top: 1rem;
+            color: #666;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* صفحه پرداخت */
+        .payment-page {
+            text-align: center;
+        }
+        
+        .payment-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .bank-info {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f1f1f1;
+            border-radius: 5px;
+            direction: ltr;
+            text-align: center;
+        }
+        
+        /* صفحه حساب کاربری */
+        .account-page {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .account-sidebar {
+            flex: 0 0 250px;
+        }
+        
+        .account-menu {
+            list-style: none;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .account-menu li a {
+            display: block;
+            padding: 1rem;
+            color: var(--dark-color);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .account-menu li a:hover, .account-menu li a.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .account-content {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+        
+        /* صفحه بلاگ */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-excerpt {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* سیستم مقایسه */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        
+        .compare-table th, .compare-table td {
+            padding: 1rem;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+        
+        .compare-table th {
+            background: #f8f9fa;
+            font-weight: 500;
+        }
+        
+        .compare-table img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        
+        /* فیلتر محصولات */
+        .filter-sidebar {
+            flex: 0 0 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-left: 2rem;
+        }
+        
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-title {
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .filter-option {
+            margin-bottom: 0.5rem;
+        }
+        
+        .filter-option label {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+        
+        /* لیست علاقه‌مندی‌ها */
+        .wishlist-empty {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        
+        /* سیستم پشتیبانی */
+        .support-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* سیستم نظرات */
+        .reviews {
+            margin-top: 3rem;
+        }
+        
+        .review-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .review-author {
+            font-weight: 500;
+        }
+        
+        .review-rating {
+            color: var(--warning-color);
+        }
+        
+        .review-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .review-form {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .rating-stars {
+            margin-bottom: 1rem;
+        }
+        
+        .rating-stars i {
+            cursor: pointer;
+            color: #ddd;
+            font-size: 1.5rem;
+            margin-left: 0.25rem;
+        }
+        
+        .rating-stars i.active {
+            color: var(--warning-color);
+        }
+        
+        /* خبرنامه */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .newsletter h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .newsletter-btn {
+            padding: 0 1.5rem;
+            background: var(--dark-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        
+        /* تایمر تخفیف */
+        .discount-timer {
+            background: var(--warning-color);
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-right: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-left: 0.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.75rem 0.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+            
+            .cart-sidebar {
+                width: 90%;
+                right: -90%;
+            }
+            
+            .product-details {
+                flex-direction: column;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+            }
+            
+            .account-page {
+                flex-direction: column;
+            }
+            
+            .account-sidebar {
+                margin-bottom: 2rem;
+            }
+            
+            .filter-sidebar {
+                margin-left: 0;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- نوار بالایی -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="contact-info">
+                <i class="fas fa-phone"></i> 021-33928768 | 
+                <i class="fas fa-mobile-alt"></i> 09124109068
+            </div>
+            <div class="auth-links">
+                <a href="#" id="login-link"><i class="fas fa-user"></i> ورود</a> | 
+                <a href="#" id="register-link"><i class="fas fa-user-plus"></i> ثبت نام</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- هدر اصلی -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>کیف بالی</span>
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="home-link">خانه</a></li>
+                    <li id="products-menu">
+                        <a href="#" id="products-link">محصولات <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="category-link" data-category="formal">کیف‌های مجلسی</a>
+                            <a href="#" class="category-link" data-category="sport">کیف‌های اسپرت</a>
+                            <a href="#" class="category-link" data-category="office">کیف‌های اداری</a>
+                            <a href="#" class="category-link" data-category="leather">کیف‌های چرمی</a>
+                        </div>
+                    </li>
+                    <li><a href="#" id="blog-link">بلاگ</a></li>
+                    <li><a href="#" id="about-link">درباره ما</a></li>
+                    <li><a href="#" id="contact-link">تماس با ما</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="جستجوی محصولات...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="cart-icon" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="wishlist-icon" id="wishlist-icon">
+                <i class="fas fa-heart"></i>
+                <span class="wishlist-count">0</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- سبد خرید -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>سبد خرید شما</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- آیتم‌های سبد خرید اینجا نمایش داده می‌شوند -->
+        </div>
+        <div class="cart-total">
+            مجموع: <span id="cart-total-price">0</span> تومان
+        </div>
+        <button class="checkout-btn" id="checkout-btn">تکمیل سفارش</button>
+    </div>
+    
+    <!-- لیست علاقه‌مندی‌ها -->
+    <div class="cart-sidebar" id="wishlist-sidebar">
+        <div class="cart-header">
+            <h3>لیست علاقه‌مندی‌ها</h3>
+            <button class="close-cart" id="close-wishlist">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="wishlist-items">
+            <!-- آیتم‌های علاقه‌مندی اینجا نمایش داده می‌شوند -->
+        </div>
+        <a href="#" class="checkout-btn" id="wishlist-view-all">مشاهده همه</a>
+    </div>
+    
+    <!-- بخش اصلی محتوا -->
+    <div id="main-content">
+        <!-- صفحه ورود -->
+        <div class="page" id="login-page">
+            <div class="container">
+                <div class="auth-form">
+                    <h2 class="section-title">ورود به حساب کاربری</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-email">ایمیل</label>
+                            <input type="email" id="login-email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">رمز عبور</label>
+                            <input type="password" id="login-password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="auth-btn">ورود</button>
+                    </form>
+                    <div class="auth-links">
+                        حساب کاربری ندارید؟ <a href="#" id="go-to-register">ثبت نام کنید</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه ثبت نام -->
+        <div class="page" id="register-page">
+            <div class="container">
+                <div class="auth-form">
+                    <h2 class="section-title">ثبت نام کاربر جدید</h2>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="register-name">نام کامل</label>
+                            <input type="text" id="register-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">ایمیل</label>
+                            <input type="email" id="register-email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-phone">تلفن همراه</label>
+                            <input type="tel" id="register-phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">رمز عبور</label>
+                            <input type="password" id="register-password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm-password">تکرار رمز عبور</label>
+                            <input type="password" id="register-confirm-password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="auth-btn">ثبت نام</button>
+                    </form>
+                    <div class="auth-links">
+                        قبلاً ثبت نام کرده‌اید؟ <a href="#" id="go-to-login">وارد شوید</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه حساب کاربری -->
+        <div class="page" id="account-page">
+            <div class="container">
+                <div class="account-page">
+                    <div class="account-sidebar">
+                        <ul class="account-menu">
+                            <li><a href="#" class="account-dashboard-link active">داشبورد</a></li>
+                            <li><a href="#" class="account-orders-link">سفارشات</a></li>
+                            <li><a href="#" class="account-address-link">آدرس‌ها</a></li>
+                            <li><a href="#" class="account-details-link">جزئیات حساب</a></li>
+                            <li><a href="#" class="account-wishlist-link">لیست علاقه‌مندی‌ها</a></li>
+                            <li><a href="#" class="account-logout-link">خروج</a></li>
+                        </ul>
+                    </div>
+                    <div class="account-content">
+                        <div id="account-dashboard">
+                            <h2 class="section-title">داشبورد حساب کاربری</h2>
+                            <p>سلام <strong id="account-name">کاربر</strong>، به حساب کاربری خود خوش آمدید!</p>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                                <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; text-align: center;">
+                                    <h3>سفارشات اخیر</h3>
+                                    <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">2</p>
+                                </div>
+                                <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; text-align: center;">
+                                    <h3>لیست علاقه‌مندی‌ها</h3>
+                                    <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">5</p>
+                                </div>
+                                <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; text-align: center;">
+                                    <h3>پیام‌های خوانده نشده</h3>
+                                    <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">1</p>
+                                </div>
+                            </div>
+                            
+                            <h3 style="margin: 1.5rem 0 1rem;">سفارشات اخیر</h3>
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: #f8f9fa;">
+                                        <th style="padding: 0.75rem; text-align: right;">شماره سفارش</th>
+                                        <th style="padding: 0.75rem; text-align: right;">تاریخ</th>
+                                        <th style="padding: 0.75rem; text-align: right;">وضعیت</th>
+                                        <th style="padding: 0.75rem; text-align: right;">جمع کل</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid #eee;">
+                                        <td style="padding: 0.75rem;">#12345</td>
+                                        <td style="padding: 0.75rem;">1402/05/15</td>
+                                        <td style="padding: 0.75rem; color: var(--success-color);">تکمیل شده</td>
+                                        <td style="padding: 0.75rem;">4,250,000 تومان</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #eee;">
+                                        <td style="padding: 0.75rem;">#12344</td>
+                                        <td style="padding: 0.75rem;">1402/05/10</td>
+                                        <td style="padding: 0.75rem; color: var(--warning-color);">در حال پردازش</td>
+                                        <td style="padding: 0.75rem;">2,750,000 تومان</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div id="account-orders" style="display: none;">
+                            <h2 class="section-title">سفارشات من</h2>
+                            <p>در این بخش می‌توانید تاریخچه سفارشات خود را مشاهده کنید.</p>
+                            
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 1.5rem;">
+                                <thead>
+                                    <tr style="background: #f8f9fa;">
+                                        <th style="padding: 0.75rem; text-align: right;">شماره سفارش</th>
+                                        <th style="padding: 0.75rem; text-align: right;">تاریخ</th>
+                                        <th style="padding: 0.75rem; text-align: right;">وضعیت</th>
+                                        <th style="padding: 0.75rem; text-align: right;">جمع کل</th>
+                                        <th style="padding: 0.75rem; text-align: right;">عملیات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid #eee;">
+                                        <td style="padding: 0.75rem;">#12345</td>
+                                        <td style="padding: 0.75rem;">1402/05/15</td>
+                                        <td style="padding: 0.75rem; color: var(--success-color);">تکمیل شده</td>
+                                        <td style="padding: 0.75rem;">4,250,000 تومان</td>
+                                        <td style="padding: 0.75rem;"><a href="#" style="color: var(--primary-color);">مشاهده</a></td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #eee;">
+                                        <td style="padding: 0.75rem;">#12344</td>
+                                        <td style="padding: 0.75rem;">1402/05/10</td>
+                                        <td style="padding: 0.75rem; color: var(--warning-color);">در حال پردازش</td>
+                                        <td style="padding: 0.75rem;">2,750,000 تومان</td>
+                                        <td style="padding: 0.75rem;"><a href="#" style="color: var(--primary-color);">مشاهده</a></td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #eee;">
+                                        <td style="padding: 0.75rem;">#12340</td>
+                                        <td style="padding: 0.75rem;">1402/04/28</td>
+                                        <td style="padding: 0.75rem; color: var(--success-color);">تکمیل شده</td>
+                                        <td style="padding: 0.75rem;">3,500,000 تومان</td>
+                                        <td style="padding: 0.75rem;"><a href="#" style="color: var(--primary-color);">مشاهده</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div id="account-wishlist" style="display: none;">
+                            <h2 class="section-title">لیست علاقه‌مندی‌ها</h2>
+                            <div class="products-grid" id="wishlist-products">
+                                <!-- محصولات علاقه‌مندی اینجا نمایش داده می‌شوند -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- بخش محصولات -->
+        <section class="products-section" id="products-section">
+            <div class="container">
+                <h2 class="section-title">محصولات ویژه</h2>
+                
+                <!-- فیلتر محصولات -->
+                <div style="display: flex; margin-bottom: 2rem;">
+                    <div class="filter-sidebar">
+                        <div class="filter-group">
+                            <h4 class="filter-title">دسته‌بندی</h4>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-category-formal" checked>
+                                <label for="filter-category-formal">کیف‌های مجلسی</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-category-sport" checked>
+                                <label for="filter-category-sport">کیف‌های اسپرت</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-category-office" checked>
+                                <label for="filter-category-office">کیف‌های اداری</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-category-leather" checked>
+                                <label for="filter-category-leather">کیف‌های چرمی</label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h4 class="filter-title">محدوده قیمت</h4>
+                            <div class="filter-option">
+                                <input type="radio" name="price-range" id="price-all" checked>
+                                <label for="price-all">همه قیمت‌ها</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="radio" name="price-range" id="price-under">
+                                <label for="price-under">زیر 1 میلیون تومان</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="radio" name="price-range" id="price-middle">
+                                <label for="price-middle">1 تا 2 میلیون تومان</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="radio" name="price-range" id="price-high">
+                                <label for="price-high">بالای 2 میلیون تومان</label>
+                            </div>
+                        </div>
+                        
+                        <button class="add-to-cart" style="width: 100%;">اعمال فیلترها</button>
+                    </div>
+                    
+                    <div style="flex: 1;">
+                        <div class="products-grid">
+                            <!-- محصول 1 -->
+                            <div class="product-card" data-id="1" data-category="formal">
+                                <span class="product-badge">جدید</span>
+                                <img src="https://i.ibb.co/Kzy85cQY/bag1.jpg" alt="کیف مجلسی زنانه طرح جدید" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-title">کیف مجلسی زنانه</h3>
+                                    <p class="product-description">کیف چرمی با طراحی شیک و منحصر بفرد</p>
+                                    <div class="product-price">
+                                        <div>
+                                            <span class="price">1,550,000 تومان</span>
+                                            <span class="old-price">1,850,000 تومان</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="add-to-cart" data-id="1" data-name="کیف مجلسی زنانه" data-price="1550000" data-image="https://i.ibb.co/Kzy85cQY/bag1.jpg">
+                                            <i class="fas fa-cart-plus"></i>
+                                            افزودن
+                                        </button>
+                                        <div>
+                                            <button class="action-btn wishlist-btn" data-id="1"><i class="far fa-heart"></i></button>
+                                            <button class="action-btn compare-btn" data-id="1"><i class="fas fa-exchange-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- محصول 2 -->
+                            <div class="product-card" data-id="2" data-category="formal">
+                                <img src="https://i.ibb.co/TMpZqzh7/bag2.jpg" alt="کیف مجلسی کلاسیک" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-title">کیف مجلسی کلاسیک</h3>
+                                    <p class="product-description">مناسب برای مهمانی‌های رسمی و شبانه</p>
+                                    <div class="product-price">
+                                        <div>
+                                            <span class="price">1,250,000 تومان</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="add-to-cart" data-id="2" data-name="کیف مجلسی کلاسیک" data-price="1250000" data-image="https://i.ibb.co/TMpZqzh7/bag2.jpg">
+                                            <i class="fas fa-cart-plus"></i>
+                                            افزودن
+                                        </button>
+                                        <div>
+                                            <button class="action-btn wishlist-btn" data-id="2"><i class="far fa-heart"></i></button>
+                                            <button class="action-btn compare-btn" data-id="2"><i class="fas fa-exchange-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- محصول 3 -->
+                            <div class="product-card" data-id="3" data-category="sport">
+                                <span class="product-badge sale">تخفیف</span>
+                                <img src="https://i.ibb.co/C5MH294k/bag3.jpg" alt="کیف اسپرت زنانه" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-title">کیف اسپرت زنانه</h3>
+                                    <p class="product-description">سبک و کاربردی برای استفاده روزمره</p>
+                                    <div class="product-price">
+                                        <div>
+                                            <span class="price">950,000 تومان</span>
+                                            <span class="old-price">1,200,000 تومان</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="add-to-cart" data-id="3" data-name="کیف اسپرت زنانه" data-price="950000" data-image="https://i.ibb.co/C5MH294k/bag3.jpg">
+                                            <i class="fas fa-cart-plus"></i>
+                                            افزودن
+                                        </button>
+                                        <div>
+                                            <button class="action-btn wishlist-btn" data-id="3"><i class="far fa-heart"></i></button>
+                                            <button class="action-btn compare-btn" data-id="3"><i class="fas fa-exchange-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- محصول 4 -->
+                            <div class="product-card" data-id="4" data-category="office">
+                                <img src="https://i.ibb.co/C5MH294k/bag3.jpg" alt="کیف اداری زنانه" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-title">کیف اداری زنانه</h3>
+                                    <p class="product-description">مناسب برای محیط کار با طراحی رسمی</p>
+                                    <div class="product-price">
+                                        <div>
+                                            <span class="price">1,350,000 تومان</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="add-to-cart" data-id="4" data-name="کیف اداری زنانه" data-price="1350000" data-image="https://i.ibb.co/C5MH294k/bag3.jpg">
+                                            <i class="fas fa-cart-plus"></i>
+                                            افزودن
+                                        </button>
+                                        <div>
+                                            <button class="action-btn wishlist-btn" data-id="4"><i class="far fa-heart"></i></button>
+                                            <button class="action-btn compare-btn" data-id="4"><i class="fas fa-exchange-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- محصول 5 -->
+                            <div class="product-card" data-id="5" data-category="leather">
+                                <span class="product-badge hot">پرفروش</span>
+                                <img src="https://i.ibb.co/Kzy85cQY/bag1.jpg" alt="کیف چرمی زنانه" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-title">کیف چرمی زنانه</h3>
+                                    <p class="product-description">کیف چرم طبیعی با دوخت ممتاز</p>
+                                    <div class="product-price">
+                                        <div>
+                                            <span class="price">1,650,000 تومان</span>
+                                            <span class="old-price">1,950,000 تومان</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="add-to-cart" data-id="5" data-name="کیف چرمی زنانه" data-price="1650000" data-image="https://i.ibb.co/Kzy85cQY/bag1.jpg">
+                                            <i class="fas fa-cart-plus"></i>
+                                            افزودن
+                                        </button>
+                                        <div>
+                                            <button class="action-btn wishlist-btn" data-id="5"><i class="far fa-heart"></i></button>
+                                            <button class="action-btn compare-btn" data-id="5"><i class="fas fa-exchange-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- محصول 6 -->
+                            <div class="product-card" data-id="6" data-category="leather">
+                                <img src="https://i.ibb.co/TMpZqzh7/bag2.jpg" alt="کیف چرمی لاکچری" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-title">کیف چرمی لاکچری</h3>
+                                    <p class="product-description">کیف چرم اصل ایتالیایی با طراحی خاص</p>
+                                    <div class="product-price">
+                                        <div>
+                                            <span class="price">2,450,000 تومان</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="add-to-cart" data-id="6" data-name="کیف چرمی لاکچری" data-price="2450000" data-image="https://i.ibb.co/TMpZqzh7/bag2.jpg">
+                                            <i class="fas fa-cart-plus"></i>
+                                            افزودن
+                                        </button>
+                                        <div>
+                                            <button class="action-btn wishlist-btn" data-id="6"><i class="far fa-heart"></i></button>
+                                            <button class="action-btn compare-btn" data-id="6"><i class="fas fa-exchange-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- صفحه محصول -->
+        <div class="product-page" id="product-page">
+            <div class="container">
+                <div class="product-details">
+                    <div class="product-gallery">
+                        <img src="" alt="" class="main-image" id="product-main-image">
+                    </div>
+                    <div class="product-info-container">
+                        <h1 class="product-page-title" id="product-page-title"></h1>
+                        <div class="product-page-price" id="product-page-price"></div>
+                        <div class="product-meta">
+                            <span><i class="fas fa-check-circle"></i> موجود در انبار</span>
+                            <span><i class="fas fa-truck"></i> ارسال رایگان برای خریدهای بالای 2 میلیون تومان</span>
+                            <span><i class="fas fa-shield-alt"></i> گارانتی 6 ماهه</span>
+                        </div>
+                        <p class="product-page-description" id="product-page-description"></p>
+                        <button class="add-to-cart" id="product-page-add-to-cart">
+                            <i class="fas fa-cart-plus"></i>
+                            افزودن به سبد خرید
+                        </button>
+                        <div style="margin-top: 1rem;">
+                            <button class="action-btn wishlist-btn" id="product-page-wishlist-btn" style="font-size: 1.2rem;">
+                                <i class="far fa-heart"></i> افزودن به لیست علاقه‌مندی‌ها
+                            </button>
+                        </div>
+                        <a href="#" class="back-to-products" id="back-to-products">بازگشت به محصولات</a>
+                        
+                        <!-- نظرات محصول -->
+                        <div class="reviews">
+                            <h3 style="margin: 2rem 0 1rem;">نظرات مشتریان</h3>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div>
+                                        <span class="review-author">نازنین محمدی</span>
+                                        <span class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                    </div>
+                                    <span class="review-date">1402/05/10</span>
+                                </div>
+                                <p>کیف بسیار باکیفیت و زیبایی دریافت کردم. کاملاً مطابق تصویر بود و بسته‌بندی خیلی خوبی داشت. ممنون از فروشگاه خوبتون</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div>
+                                        <span class="review-author">فاطمه رضایی</span>
+                                        <span class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </span>
+                                    </div>
+                                    <span class="review-date">1402/04/28</span>
+                                </div>
+                                <p>کیف خوبی بود ولی رنگش کمی با تصویر متفاوت بود. کیفیت ساخت عالی بود ولی بهتر بود در مورد رنگ دقیق‌تر توضیح داده می‌شد.</p>
+                            </div>
+                            
+                            <!-- فرم ارسال نظر -->
+                            <div class="review-form">
+                                <h4>ثبت نظر جدید</h4>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star" data-rating="1"></i>
+                                    <i class="fas fa-star" data-rating="2"></i>
+                                    <i class="fas fa-star" data-rating="3"></i>
+                                    <i class="fas fa-star" data-rating="4"></i>
+                                    <i class="fas fa-star" data-rating="5"></i>
+                                </div>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="review-name">نام شما</label>
+                                        <input type="text" id="review-name" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review-text">نظر شما</label>
+                                        <textarea id="review-text" class="form-control" required></textarea>
+                                    </div>
+                                    <button type="submit" class="auth-btn">ثبت نظر</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه مقایسه محصولات -->
+        <div class="page" id="compare-page">
+            <div class="container">
+                <h2 class="section-title">مقایسه محصولات</h2>
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>ویژگی‌ها</th>
+                            <th id="compare-product-1">محصول 1</th>
+                            <th id="compare-product-2">محصول 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>تصویر محصول</th>
+                            <td><img src="" alt="" id="compare-image-1" style="width: 100px;"></td>
+                            <td><img src="" alt="" id="compare-image-2" style="width: 100px;"></td>
+                        </tr>
+                        <tr>
+                            <th>قیمت</th>
+                            <td id="compare-price-1"></td>
+                            <td id="compare-price-2"></td>
+                        </tr>
+                        <tr>
+                            <th>جنس</th>
+                            <td>چرم طبیعی</td>
+                            <td>چرم مصنوعی</td>
+                        </tr>
+                        <tr>
+                            <th>ابعاد</th>
+                            <td>25 × 15 × 10 سانتی‌متر</td>
+                            <td>30 × 20 × 12 سانتی‌متر</td>
+                        </tr>
+                        <tr>
+                            <th>وزن</th>
+                            <td>450 گرم</td>
+                            <td>600 گرم</td>
+                        </tr>
+                        <tr>
+                            <th>رنگ‌بندی</th>
+                            <td>مشکی، قهوه‌ای</td>
+                            <td>مشکی، قرمز، بژ</td>
+                        </tr>
+                        <tr>
+                            <th>گارانتی</th>
+                            <td>6 ماه</td>
+                            <td>6 ماه</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#" class="back-to-products" id="back-from-compare">بازگشت به محصولات</a>
+            </div>
+        </div>
+        
+        <!-- صفحه درباره ما -->
+        <div class="page" id="about-page">
+            <div class="container">
+                <h2 class="section-title">درباره کیف بالی</h2>
+                <p>فروشگاه کیف بالی با بیش از 30 سال سابقه در زمینه تولید و فروش کیف‌های زنانه، همواره تلاش کرده است تا با ارائه محصولات باکیفیت و طراحی‌های منحصر به فرد، رضایت مشتریان را جلب نماید.</p>
+                <p>ما با بهره‌گیری از بهترین مواد اولیه و همکاری با طراحان مجرب، مجموعه‌ای از کیف‌های زنانه را ارائه می‌دهیم که هم از نظر کیفیت و هم از نظر طراحی در سطح بالایی قرار دارند.</p>
+                <p>اعتماد شما سرمایه ماست و ما همواره سعی می‌کنیم با بهبود کیفیت محصولات و خدمات، این اعتماد را حفظ کنیم.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>کیفیت عالی</h3>
+                        <p>استفاده از بهترین مواد اولیه و کنترل کیفیت دقیق محصولات</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>تحویل سریع</h3>
+                        <p>ارسال سریع سفارشات به سراسر کشور در کوتاه‌ترین زمان ممکن</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>پشتیبانی 24/7</h3>
+                        <p>پشتیبانی آنلاین و تلفنی در تمام ساعات شبانه‌روز</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه تماس با ما -->
+        <div class="page" id="contact-page">
+            <div class="container">
+                <h2 class="section-title">تماس با ما</h2>
+                <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+                    <div style="flex: 1;">
+                        <h3>اطلاعات تماس</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> آدرس: تهران، خیابان مصباح، پاساژ باغ، کیف بالی</p>
+                        <p><i class="fas fa-phone"></i> تلفن: 021-33928768</p>
+                        <p><i class="fas fa-mobile-alt"></i> موبایل: 09124109068</p>
+                        <p><i class="fas fa-envelope"></i> ایمیل: info@kifbali.com</p>
+                        
+                        <h3 style="margin-top: 2rem;">شبکه‌های اجتماعی</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div style="flex: 1;">
+                        <h3>ساعات کاری</h3>
+                        <p>شنبه تا چهارشنبه: 10 صبح تا 8 شب</p>
+                        <p>پنجشنبه:10 صبح تا 4 بعدازظهر</p>
+                        <p>جمعه: تعطیل</p>
+                        
+                        <h3 style="margin-top: 2rem;">ارسال پیام</h3>
+                        <form class="support-form">
+                            <div class="form-group">
+                                <label for="contact-name">نام شما</label>
+                                <input type="text" id="contact-name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">ایمیل</label>
+                                <input type="email" id="contact-email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-subject">موضوع</label>
+                                <input type="text" id="contact-subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">پیام شما</label>
+                                <textarea id="contact-message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="auth-btn">ارسال پیام</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه بلاگ -->
+        <div class="page" id="blog-page">
+            <div class="container">
+                <h2 class="section-title">بلاگ کیف بالی</h2>
+                
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="https://i.ibb.co/Kzy85cQY/bag1.jpg" alt="چگونه کیف مناسب انتخاب کنیم" class="blog-image">
+                        <div class="blog-content">
+                            <h3 class="blog-title">چگونه کیف مناسب انتخاب کنیم</h3>
+                            <p class="blog-meta"><i class="far fa-calendar-alt"></i> 1402/05/15 | <i class="far fa-eye"></i> 245 بازدید</p>
+                            <p class="blog-excerpt">راهنمای جامع برای انتخاب کیف مناسب بر اساس سلیقه، نیاز و سبک زندگی شما...</p>
+                            <a href="#" class="read-more">ادامه مطلب</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <img src="https://i.ibb.co/TMpZqzh7/bag2.jpg" alt="ترندهای کیف زنانه 2023" class="blog-image">
+                        <div class="blog-content">
+                            <h3 class="blog-title">ترندهای کیف زنانه 2023</h3>
+                            <p class="blog-meta"><i class="far fa-calendar-alt"></i> 1402/05/10 | <i class="far fa-eye"></i> 189 بازدید</p>
+                            <p class="blog-excerpt">آخرین ترندهای دنیای کیف‌های زنانه در سال 2023 و پیش‌بینی مد برای سال آینده...</p>
+                            <a href="#" class="read-more">ادامه مطلب</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <img src="https://i.ibb.co/C5MH294k/bag3.jpg" alt="نگهداری از کیف چرمی" class="blog-image">
+                        <div class="blog-content">
+                            <h3 class="blog-title">نگهداری از کیف چرمی</h3>
+                            <p class="blog-meta"><i class="far fa-calendar-alt"></i> 1402/04/28 | <i class="far fa-eye"></i> 312 بازدید</p>
+                            <p class="blog-excerpt">نکات طلایی برای نگهداری و مراقبت از کیف‌های چرمی و افزایش طول عمر آنها...</p>
+                            <a href="#" class="read-more">ادامه مطلب</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه سوالات متداول -->
+        <div class="page" id="faq-page">
+            <div class="container">
+                <h2 class="section-title">سوالات متداول</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>چگونه می‌توانم سفارشم را پیگیری کنم؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>پس از ثبت سفارش، کد رهگیری برای شما ارسال می‌شود. شما می‌توانید با وارد کردن این کد در بخش "پیگیری سفارش" در سایت، وضعیت سفارش خود را مشاهده کنید.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>رویه بازگرداندن کالا چگونه است؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>در صورت عدم رضایت از کالا، می‌توانید تا 7 روز پس از دریافت سفارش، کالا را مرجوع کنید. کالا باید در شرایط اولیه و بدون استفاده باشد.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>آیا امکان پرداخت در محل وجود دارد؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بله، برای سفارشات داخل تهران امکان پرداخت در محل وجود دارد. برای سایر شهرها، پرداخت باید به صورت آنلاین انجام شود.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>زمان ارسال سفارشات چقدر است؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>سفارشات داخل تهران معمولاً در همان روز کاری ارسال می‌شوند. برای شهرستان‌ها، زمان ارسال بین 2 تا 4 روز کاری بسته به شهر مقصد متغیر است.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>آیا گارانتی برای محصولات وجود دارد؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بله، تمامی محصولات ما دارای گارانتی 6 ماهه در برابر هرگونه عیب و نقص تولیدی هستند.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>چگونه می‌توانم از تخفیف‌های ویژه استفاده کنم؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>برای استفاده از تخفیف‌های ویژه می‌توانید در خبرنامه سایت عضو شوید یا کد تخفیف را در مرحله پرداخت وارد کنید.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه دسته‌بندی محصولات -->
+        <div class="page" id="category-page">
+            <div class="container">
+                <h2 class="section-title" id="category-title">محصولات</h2>
+                <div class="products-grid" id="category-products">
+                    <!-- محصولات بر اساس دسته‌بندی اینجا نمایش داده می‌شوند -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه پرداخت -->
+        <div class="page payment-page" id="payment-page">
+            <div class="container">
+                <h2 class="section-title">تکمیل سفارش</h2>
+                <div class="payment-info">
+                    <h3>سفارش شما با موفقیت ثبت شد</h3>
+                    <p>لطفاً مبلغ <span id="final-price">0</span> تومان را به شماره حساب زیر واریز نمایید:</p>
+                    <div class="bank-info">
+                        6219-8619-5396-7006
+                    </div>
+                    <p>پس از واریز، تصویر فیش واریزی را به شماره واتساپ 09124109068 ارسال نمایید.</p>
+                    <p>سفارش شما پس از تأیید پرداخت، ارسال خواهد شد.</p>
+                    <a href="#" class="back-to-products" id="back-to-home">بازگشت به صفحه اصلی</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- خبرنامه -->
+    <div class="newsletter">
+        <div class="container">
+            <h3>عضویت در خبرنامه</h3>
+            <p>برای دریافت آخرین تخفیف‌ها و پیشنهادهای ویژه در خبرنامه ما عضو شوید</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="آدرس ایمیل شما" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">عضویت</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- فوتر -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>درباره کیف بالی</h3>
+                <p>فروشگاه تخصصی کیف‌های زنانه با بیش از 30 سال سابقه در ارائه بهترین کیفیت و طراحی‌های روز دنیا</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>لینک‌های سریع</h3>
+                <ul>
+                    <li><a href="#" id="footer-home-link">خانه</a></li>
+                    <li><a href="#" id="footer-products-link">محصولات</a></li>
+                    <li><a href="#" id="footer-blog-link">بلاگ</a></li>
+                    <li><a href="#" id="footer-about-link">درباره ما</a></li>
+                    <li><a href="#" id="footer-faq-link">سوالات متداول</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>خدمات مشتریان</h3>
+                <ul>
+                    <li><a href="#">پیگیری سفارش</a></li>
+                    <li><a href="#">رویه بازگرداندن کالا</a></li>
+                    <li><a href="#" id="footer-contact-link">تماس با ما</a></li>
+                    <li><a href="#" id="footer-login-link">ورود به حساب کاربری</a></li>
+                    <li><a href="#" id="footer-register-link">ثبت نام کاربر جدید</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>تماس با ما</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> تهران، خیابان مصباح، پاساژ باغ، کیف بالی</li>
+                    <li><i class="fas fa-phone"></i> 021-33928768</li>
+                    <li><i class="fas fa-mobile-alt"></i> 09124109068</li>
+                    <li><i class="fas fa-envelope"></i> info@kifbali.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>تمامی حقوق برای فروشگاه کیف بالی محفوظ است © 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // مدیریت سبد خرید
+        let cart = [];
+        let wishlist = [];
+        let compareList = [];
+        let currentUser = null;
+        
+        const cartIcon = document.getElementById('cart-icon');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const closeCart = document.getElementById('close-cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+        const cartCount = document.querySelector('.cart-count');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        
+        const wishlistIcon = document.getElementById('wishlist-icon');
+        const wishlistSidebar = document.getElementById('wishlist-sidebar');
+        const closeWishlist = document.getElementById('close-wishlist');
+        const wishlistItemsContainer = document.getElementById('wishlist-items');
+        const wishlistCount = document.querySelector('.wishlist-count');
+        const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+        
+        // باز و بسته کردن سبد خرید
+        cartIcon.addEventListener('click', () => {
+            cartSidebar.classList.add('active');
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+        });
+        
+        // باز و بسته کردن لیست علاقه‌مندی‌ها
+        wishlistIcon.addEventListener('click', () => {
+            wishlistSidebar.classList.add('active');
+        });
+        
+        closeWishlist.addEventListener('click', () => {
+            wishlistSidebar.classList.remove('active');
+        });
+        
+        // افزودن محصول به سبد خرید
+        function addToCart(id, name, price, image) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            cartSidebar.classList.add('active');
+            
+            // نمایش اعلان
+            showAlert(`محصول ${name} به سبد خرید اضافه شد!`);
+        }
+        
+        // افزودن محصول به لیست علاقه‌مندی‌ها
+        function addToWishlist(id, name, price, image) {
+            const existingItem = wishlist.find(item => item.id === id);
+            
+            if (!existingItem) {
+                wishlist.push({
+                    id,
+                    name,
+                    price,
+                    image
+                });
+                
+                updateWishlist();
+                
+                // نمایش اعلان
+                showAlert(`محصول ${name} به لیست علاقه‌مندی‌ها اضافه شد!`);
+            }
+        }
+        
+        // حذف از لیست علاقه‌مندی‌ها
+        function removeFromWishlist(id) {
+            wishlist = wishlist.filter(item => item.id !== id);
+            updateWishlist();
+        }
+        
+        // به‌روزرسانی سبد خرید
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <h4 class="cart-item-title">${item.name}</h4>
+                        <p class="cart-item-price">${item.price.toLocaleString()} تومان × ${item.quantity}</p>
+                        <button class="remove-item" data-id="${item.id}">حذف</button>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+            
+            cartTotalPrice.textContent = total.toLocaleString();
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            // اضافه کردن رویداد برای دکمه‌های حذف
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    updateCart();
+                });
+            });
+        }
+        
+        // به‌روزرسانی لیست علاقه‌مندی‌ها
+        function updateWishlist() {
+            wishlistItemsContainer.innerHTML = '';
+            wishlistCount.textContent = wishlist.length;
+            
+            wishlist.forEach(item => {
+                const wishlistItemElement = document.createElement('div');
+                wishlistItemElement.className = 'cart-item';
+                wishlistItemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <h4 class="cart-item-title">${item.name}</h4>
+                        <p class="cart-item-price">${item.price.toLocaleString()} تومان</p>
+                        <button class="remove-item" data-id="${item.id}">حذف</button>
+                    </div>
+                `;
+                
+                wishlistItemsContainer.appendChild(wishlistItemElement);
+            });
+            
+            // به‌روزرسانی دکمه‌های علاقه‌مندی در محصولات
+            document.querySelectorAll('.wishlist-btn').forEach(button => {
+                const id = button.getAttribute('data-id');
+                if (wishlist.some(item => item.id === id)) {
+                    button.innerHTML = '<i class="fas fa-heart"></i>';
+                    button.classList.add('active');
+                } else {
+                    button.innerHTML = '<i class="far fa-heart"></i>';
+                    button.classList.remove('active');
+                }
+            });
+            
+            // اضافه کردن رویداد برای دکمه‌های حذف
+            document.querySelectorAll('#wishlist-items .remove-item').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    removeFromWishlist(id);
+                });
+            });
+        }
+        
+        // نمایش اعلان
+        function showAlert(message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.style.position = 'fixed';
+            alertDiv.style.bottom = '20px';
+            alertDiv.style.left = '50%';
+            alertDiv.style.transform = 'translateX(-50%)';
+            alertDiv.style.backgroundColor = 'var(--primary-color)';
+            alertDiv.style.color = 'white';
+            alertDiv.style.padding = '1rem 2rem';
+            alertDiv.style.borderRadius = '5px';
+            alertDiv.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            alertDiv.style.zIndex = '1000';
+            alertDiv.style.animation = 'fadeIn 0.3s, fadeOut 0.3s 2.7s';
+            alertDiv.textContent = message;
+            
+            document.body.appendChild(alertDiv);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 3000);
+        }
+        
+        // مدیریت کلیک روی دکمه‌های افزودن به سبد خرید
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseInt(button.getAttribute('data-price'));
+                const image = button.getAttribute('data-image');
+                addToCart(id, name, price, image);
+            });
+        });
+        
+        // مدیریت کلیک روی دکمه‌های علاقه‌مندی
+        wishlistButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = button.getAttribute('data-id');
+                const card = button.closest('.product-card');
+                const name = card.querySelector('.product-title').textContent;
+                const price = parseInt(card.querySelector('.price').textContent.replace(/,/g, ''));
+                const image = card.querySelector('.product-image').src;
+                
+                if (button.classList.contains('active')) {
+                    removeFromWishlist(id);
+                } else {
+                    addToWishlist(id, name, price, image);
+                }
+            });
+        });
+        
+        // مدیریت صفحه محصول
+        const productCards = document.querySelectorAll('.product-card');
+        const productsSection = document.getElementById('products-section');
+        const productPage = document.getElementById('product-page');
+        const productMainImage = document.getElementById('product-main-image');
+        const productPageTitle = document.getElementById('product-page-title');
+        const productPagePrice = document.getElementById('product-page-price');
+        const productPageDescription = document.getElementById('product-page-description');
+        const productPageAddToCart = document.getElementById('product-page-add-to-cart');
+        const productPageWishlistBtn = document.getElementById('product-page-wishlist-btn');
+        const backToProducts = document.getElementById('back-to-products');
+        
+        // نمایش صفحه محصول
+        productCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('add-to-cart') && !e.target.classList.contains('action-btn')) {
+                    const id = card.getAttribute('data-id');
+                    const product = {
+                        id,
+                        title: card.querySelector('.product-title').textContent,
+                        price: card.querySelector('.price').textContent,
+                        description: card.querySelector('.product-description').textContent,
+                        image: card.querySelector('.product-image').src
+                    };
+                    
+                    productMainImage.src = product.image;
+                    productPageTitle.textContent = product.title;
+                    productPagePrice.textContent = product.price;
+                    productPageDescription.textContent = product.description;
+                    
+                    productPageAddToCart.setAttribute('data-id', product.id);
+                    productPageAddToCart.setAttribute('data-name', product.title);
+                    productPageAddToCart.setAttribute('data-price', product.price.replace(/,/g, ''));
+                    productPageAddToCart.setAttribute('data-image', product.image);
+                    
+                    productPageWishlistBtn.setAttribute('data-id', product.id);
+                    
+                    // بررسی آیا محصول در لیست علاقه‌مندی‌ها است
+                    if (wishlist.some(item => item.id === product.id)) {
+                        productPageWishlistBtn.innerHTML = '<i class="fas fa-heart"></i> حذف از لیست علاقه‌مندی‌ها';
+                        productPageWishlistBtn.classList.add('active');
+                    } else {
+                        productPageWishlistBtn.innerHTML = '<i class="far fa-heart"></i> افزودن به لیست علاقه‌مندی‌ها';
+                        productPageWishlistBtn.classList.remove('active');
+                    }
+                    
+                    hideAllPages();
+                    productPage.style.display = 'block';
+                }
+            });
+        });
+        
+        // افزودن به سبد خرید از صفحه محصول
+        productPageAddToCart.addEventListener('click', () => {
+            const id = productPageAddToCart.getAttribute('data-id');
+            const name = productPageAddToCart.getAttribute('data-name');
+            const price = parseInt(productPageAddToCart.getAttribute('data-price'));
+            const image = productPageAddToCart.getAttribute('data-image');
+            addToCart(id, name, price, image);
+        });
+        
+        // مدیریت دکمه علاقه‌مندی در صفحه محصول
+        productPageWishlistBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = productPageWishlistBtn.getAttribute('data-id');
+            const name = productPageAddToCart.getAttribute('data-name');
+            const price = parseInt(productPageAddToCart.getAttribute('data-price'));
+            const image = productPageAddToCart.getAttribute('data-image');
+            
+            if (productPageWishlistBtn.classList.contains('active')) {
+                removeFromWishlist(id);
+                productPageWishlistBtn.innerHTML = '<i class="far fa-heart"></i> افزودن به لیست علاقه‌مندی‌ها';
+                productPageWishlistBtn.classList.remove('active');
+            } else {
+                addToWishlist(id, name, price, image);
+                productPageWishlistBtn.innerHTML = '<i class="fas fa-heart"></i> حذف از لیست علاقه‌مندی‌ها';
+                productPageWishlistBtn.classList.add('active');
+            }
+        });
+        
+        // بازگشت به صفحه محصولات
+        backToProducts.addEventListener('click', (e) => {
+            e.preventDefault();
+            showProductsPage();
+        });
+        
+        // مدیریت صفحات
+        const pages = {
+            home: document.getElementById('products-section'),
+            product: document.getElementById('product-page'),
+            about: document.getElementById('about-page'),
+            contact: document.getElementById('contact-page'),
+            faq: document.getElementById('faq-page'),
+            category: document.getElementById('category-page'),
+            payment: document.getElementById('payment-page'),
+            login: document.getElementById('login-page'),
+            register: document.getElementById('register-page'),
+            account: document.getElementById('account-page'),
+            blog: document.getElementById('blog-page'),
+            compare: document.getElementById('compare-page')
+        };
+        
+        function hideAllPages() {
+            Object.values(pages).forEach(page => {
+                if (page) page.style.display = 'none';
+            });
+        }
+        
+        function showProductsPage() {
+            hideAllPages();
+            pages.home.style.display = 'block';
+        }
+        
+        // لینک‌های ناوبری
+        document.getElementById('home-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            showProductsPage();
+        });
+        
+        document.getElementById('products-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            showProductsPage();
+        });
+        
+        document.getElementById('about-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.about.style.display = 'block';
+        });
+        
+        document.getElementById('contact-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.contact.style.display = 'block';
+        });
+        
+        document.getElementById('blog-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.blog.style.display = 'block';
+        });
+        
+        // لینک‌های فوتر
+        document.getElementById('footer-home-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            showProductsPage();
+        });
+        
+        document.getElementById('footer-products-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            showProductsPage();
+        });
+        
+        document.getElementById('footer-about-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.about.style.display = 'block';
+        });
+        
+        document.getElementById('footer-contact-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.contact.style.display = 'block';
+        });
+        
+        document.getElementById('footer-faq-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.faq.style.display = 'block';
+        });
+        
+        document.getElementById('footer-blog-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.blog.style.display = 'block';
+        });
+        
+        // مدیریت سوالات متداول
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+        
+        // مدیریت دسته‌بندی محصولات
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = link.getAttribute('data-category');
+                showCategoryPage(category);
+            });
+        });
+        
+        function showCategoryPage(category) {
+            hideAllPages();
+            pages.category.style.display = 'block';
+            
+            let categoryTitle = '';
+            let filteredProducts = [];
+            
+            switch(category) {
+                case 'formal':
+                    categoryTitle = 'کیف‌های مجلسی';
+                    filteredProducts = Array.from(productCards).filter(card => card.getAttribute('data-category') === 'formal');
+                    break;
+                case 'sport':
+                    categoryTitle = 'کیف‌های اسپرت';
+                    filteredProducts = Array.from(productCards).filter(card => card.getAttribute('data-category') === 'sport');
+                    break;
+                case 'office':
+                    categoryTitle = 'کیف‌های اداری';
+                    filteredProducts = Array.from(productCards).filter(card => card.getAttribute('data-category') === 'office');
+                    break;
+                case 'leather':
+                    categoryTitle = 'کیف‌های چرمی';
+                    filteredProducts = Array.from(productCards).filter(card => card.getAttribute('data-category') === 'leather');
+                    break;
+            }
+            
+            document.getElementById('category-title').textContent = categoryTitle;
+            const categoryProductsContainer = document.getElementById('category-products');
+            categoryProductsContainer.innerHTML = '';
+            
+            filteredProducts.forEach(product => {
+                categoryProductsContainer.appendChild(product.cloneNode(true));
+            });
+            
+            // اضافه کردن رویداد کلیک برای محصولات فیلتر شده
+            document.querySelectorAll('#category-products .product-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (!e.target.classList.contains('add-to-cart') && !e.target.classList.contains('action-btn')) {
+                        const id = card.getAttribute('data-id');
+                        const product = {
+                            id,
+                            title: card.querySelector('.product-title').textContent,
+                            price: card.querySelector('.price').textContent,
+                            description: card.querySelector('.product-description').textContent,
+                            image: card.querySelector('.product-image').src
+                        };
+                        
+                        productMainImage.src = product.image;
+                        productPageTitle.textContent = product.title;
+                        productPagePrice.textContent = product.price;
+                        productPageDescription.textContent = product.description;
+                        
+                        productPageAddToCart.setAttribute('data-id', product.id);
+                        productPageAddToCart.setAttribute('data-name', product.title);
+                        productPageAddToCart.setAttribute('data-price', product.price.replace(/,/g, ''));
+                        productPageAddToCart.setAttribute('data-image', product.image);
+                        
+                        hideAllPages();
+                        productPage.style.display = 'block';
+                    }
+                });
+            });
+            
+            // اضافه کردن رویداد برای دکمه‌های علاقه‌مندی و مقایسه
+            document.querySelectorAll('#category-products .wishlist-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = button.getAttribute('data-id');
+                    const card = button.closest('.product-card');
+                    const name = card.querySelector('.product-title').textContent;
+                    const price = parseInt(card.querySelector('.price').textContent.replace(/,/g, ''));
+                    const image = card.querySelector('.product-image').src;
+                    
+                    if (button.classList.contains('active')) {
+                        removeFromWishlist(id);
+                    } else {
+                        addToWishlist(id, name, price, image);
+                    }
+                });
+            });
+        }
+        
+        // مدیریت صفحه پرداخت
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                showAlert('سبد خرید شما خالی است!');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('final-price').textContent = total.toLocaleString();
+            
+            hideAllPages();
+            pages.payment.style.display = 'block';
+        });
+        
+        // بازگشت به خانه از صفحه پرداخت
+        document.getElementById('back-to-home').addEventListener('click', (e) => {
+            e.preventDefault();
+            cart = [];
+            updateCart();
+            showProductsPage();
+        });
+        
+        // مدیریت سیستم ورود/ثبت نام
+        document.getElementById('login-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.login.style.display = 'block';
+        });
+        
+        document.getElementById('register-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.register.style.display = 'block';
+        });
+        
+        document.getElementById('footer-login-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.login.style.display = 'block';
+        });
+        
+        document.getElementById('footer-register-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.register.style.display = 'block';
+        });
+        
+        document.getElementById('go-to-register').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.register.style.display = 'block';
+        });
+        
+        document.getElementById('go-to-login').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            pages.login.style.display = 'block';
+        });
+        
+        // فرم ورود
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            // در حالت واقعی اینجا باید با سرور ارتباط برقرار شود
+            currentUser = {
+                name: 'کاربر نمونه',
+                email: email
+            };
+            
+            showAlert('با موفقیت وارد شدید!');
+            hideAllPages();
+            showProductsPage();
+            
+            // به‌روزرسانی بخش کاربری
+            document.getElementById('account-name').textContent = currentUser.name;
+        });
+        
+        // فرم ثبت نام
+        document.getElementById('register-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const phone = document.getElementById('register-phone').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                showAlert('رمز عبور و تکرار آن مطابقت ندارند!');
+                return;
+            }
+            
+            // در حالت واقعی اینجا باید با سرور ارتباط برقرار شود
+            currentUser = {
+                name: name,
+                email: email,
+                phone: phone
+            };
+            
+            showAlert('ثبت نام با موفقیت انجام شد!');
+            hideAllPages();
+            showProductsPage();
+            
+            // به‌روزرسانی بخش کاربری
+            document.getElementById('account-name').textContent = currentUser.name;
+        });
+        
+        // مدیریت حساب کاربری
+        document.querySelector('.account-dashboard-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.account-menu li a').forEach(link => link.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            document.querySelectorAll('.account-content > div').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('account-dashboard').style.display = 'block';
+        });
+        
+        document.querySelector('.account-orders-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.account-menu li a').forEach(link => link.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            document.querySelectorAll('.account-content > div').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('account-orders').style.display = 'block';
+        });
+        
+        document.querySelector('.account-wishlist-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.account-menu li a').forEach(link => link.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            document.querySelectorAll('.account-content > div').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('account-wishlist').style.display = 'block';
+            
+            // نمایش محصولات علاقه‌مندی در حساب کاربری
+            const wishlistContainer = document.getElementById('wishlist-products');
+            wishlistContainer.innerHTML = '';
+            
+            if (wishlist.length === 0) {
+                wishlistContainer.innerHTML = '<div class="wishlist-empty">لیست علاقه‌مندی‌های شما خالی است</div>';
+            } else {
+                wishlist.forEach(item => {
+                    const productElement = document.createElement('div');
+                    productElement.className = 'product-card';
+                    productElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">${item.name}</h3>
+                            <div class="product-price">
+                                <div>
+                                    <span class="price">${item.price.toLocaleString()} تومان</span>
+                                </div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-image="${item.image}">
+                                    <i class="fas fa-cart-plus"></i>
+                                    افزودن
+                                </button>
+                                <div>
+                                    <button class="action-btn wishlist-btn active" data-id="${item.id}"><i class="fas fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    wishlistContainer.appendChild(productElement);
+                });
+            }
+        });
+        
+        // نمایش صفحه حساب کاربری
+        document.querySelector('.account-logout-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            currentUser = null;
+            showAlert('با موفقیت خارج شدید!');
+            showProductsPage();
+        });
+        
+        // سیستم مقایسه محصولات
+        document.querySelectorAll('.compare-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = button.getAttribute('data-id');
+                const card = button.closest('.product-card');
+                const name = card.querySelector('.product-title').textContent;
+                const price = card.querySelector('.price').textContent;
+                const image = card.querySelector('.product-image').src;
+                
+                if (compareList.length >= 2) {
+                    showAlert('حداکثر می‌توانید 2 محصول را مقایسه کنید!');
+                    return;
+                }
+                
+                if (!compareList.some(item => item.id === id)) {
+                    compareList.push({
+                        id,
+                        name,
+                        price,
+                        image
+                    });
+                    
+                    button.classList.add('active');
+                    showAlert(`محصول ${name} به لیست مقایسه اضافه شد!`);
+                }
+                
+                if (compareList.length === 2) {
+                    showComparePage();
+                }
+            });
+        });
+        
+        function showComparePage() {
+            hideAllPages();
+            pages.compare.style.display = 'block';
+            
+            document.getElementById('compare-product-1').textContent = compareList[0].name;
+            document.getElementById('compare-image-1').src = compareList[0].image;
+            document.getElementById('compare-price-1').textContent = compareList[0].price;
+            
+            document.getElementById('compare-product-2').textContent = compareList[1].name;
+            document.getElementById('compare-image-2').src = compareList[1].image;
+            document.getElementById('compare-price-2').textContent = compareList[1].price;
+        }
+        
+        document.getElementById('back-from-compare').addEventListener('click', (e) => {
+            e.preventDefault();
+            compareList = [];
+            showProductsPage();
+        });
+        
+        // سیستم جستجو
+        const searchInput = document.querySelector('.search-input');
+        const searchBtn = document.querySelector('.search-btn');
+        
+        searchBtn.addEventListener('click', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            if (query === '') return;
+            
+            const results = Array.from(productCards).filter(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('.product-description').textContent.toLowerCase();
+                return title.includes(query) || description.includes(query);
+            });
+            
+            if (results.length === 0) {
+                showAlert('محصولی یافت نشد!');
+                return;
+            }
+            
+            hideAllPages();
+            pages.category.style.display = 'block';
+            document.getElementById('category-title').textContent = `نتایج جستجو برای: ${query}`;
+            
+            const categoryProductsContainer = document.getElementById('category-products');
+            categoryProductsContainer.innerHTML = '';
+            
+            results.forEach(product => {
+                categoryProductsContainer.appendChild(product.cloneNode(true));
+            });
+        });
+        
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // نمایش صفحه محصولات به صورت پیش‌فرض
+        showProductsPage();
+        
+        // افزودن استایل برای انیمیشن اعلان
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
