@@ -127,35 +127,59 @@
         nav ul li:hover .dropdown-menu {
             display: block;
         }
-        
         /* جستجو */
-        .search-container {
-            display: flex;
-            margin-left: 1rem;
-        }
-        
-        .search-input {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px 0 0 5px;
-            width: 200px;
-            transition: all 0.3s ease;
-        }
-        
-        .search-input:focus {
-            outline: none;
-            width: 250px;
-        }
-        
-        .search-btn {
-            background: white;
-            border: none;
-            border-radius: 0 5px 5px 0;
-            padding: 0 1rem;
-            cursor: pointer;
-            color: var(--primary-color);
-        }
-        
+.searchBox {
+    display: flex;
+    max-width: 230px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: #2f3640;
+    border-radius: 50px;
+    position: relative;
+    margin-left: 1rem;
+}
+
+.searchButton {
+    color: white;
+    position: absolute;
+    right: 8px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #2AF598 0%, #009EFD 100%);
+    border: 0;
+    display: inline-block;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    cursor: pointer;
+}
+
+.searchButton:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    transform: translateY(-3px);
+}
+
+.searchButton:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    padding: 24px 46px 24px 26px;
+    font-family: inherit;
+    width: 100%;
+}
+
+.searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}        
         .products-section {
             padding: 3rem 0;
         }
@@ -402,23 +426,6 @@
             margin: 1.5rem 0;
         }
         
-        .checkout-btn {
-            display: block;
-            width: 100%;
-            padding: 0.75rem;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: 500;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .checkout-btn:hover {
-            background: var(--secondary-color);
-        }
         
         /* صفحه محصول */
         .product-page {
@@ -439,7 +446,7 @@
         
         .main-image {
             width: 100%;
-            height: 400px;
+            max-height: 500px;
             object-fit: contain;
             border: 1px solid #eee;
             border-radius: 10px;
@@ -506,60 +513,136 @@
             display: block;
         }
         
-        /* صفحه ورود و ثبت نام */
-        .auth-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-        
-        .auth-btn {
-            width: 100%;
-            padding: 0.75rem;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .auth-btn:hover {
-            background: var(--secondary-color);
-        }
-        
-        .auth-links {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-        
-        .auth-links a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
+/* صفحه ورود و ثبت نام */
+.auth-form {
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.auth-form::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.flex-column > label {
+    color: #151717;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.inputForm {
+    border: 1.5px solid #ecedec;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+.input {
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-family: inherit;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.inputForm:focus-within {
+    border: 1.5px solid #2d79f3;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.flex-row > div > label {
+    font-size: 14px;
+    color: black;
+    font-weight: 400;
+}
+
+.span {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #2d79f3;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button-submit {
+    margin: 20px 0 10px 0;
+    background-color: #151717;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-submit:hover {
+    background-color: #252727;
+}
+
+.p {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+    border: 1px solid #ededef;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+    border: 1px solid #2d79f3;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.auth-links a {
+    color: #2d79f3;
+    text-decoration: none;
+    font-weight: 500;
+}
         
         /* صفحه سوالات متداول */
         .faq-item {
@@ -733,6 +816,17 @@
         }
         
         /* فیلتر محصولات */
+        .filter-toggle {
+            display: none;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        
         .filter-sidebar {
             flex: 0 0 250px;
             background: white;
@@ -740,6 +834,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             padding: 1.5rem;
             margin-left: 2rem;
+            transition: all 0.3s ease;
         }
         
         .filter-group {
@@ -810,6 +905,68 @@
             padding: 1.5rem;
             background: #f8f9fa;
             border-radius: 5px;
+        }
+        /* اعتبارسنجی پسورد */
+        .password-validation {
+          margin-top: 1rem;
+        }
+        
+        .validation-criteria {
+          margin-top: 0.5rem;
+          font-size: 0.8rem;
+        }
+        
+        .criteria-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 0.3rem;
+          color: #666;
+        }
+        
+        .criteria-item i {
+          margin-left: 0.5rem;
+          font-size: 0.9rem;
+        }
+        
+        .criteria-item.valid {
+          color: var(--success-color);
+        }
+        
+        .criteria-item.invalid {
+          color: #dc3545;
+        }
+        
+        .validation-error {
+          border-radius: 0.375rem;
+          padding: 1rem;
+          background-color: rgb(254 242 242);
+          margin-top: 1rem;
+          display: none;
+        }
+        
+        .validation-error.show {
+          display: block;
+        }
+        
+        .error-svg {
+          color: #F87171;
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+        
+        .error-prompt-heading {
+          color: #991B1B;
+          font-size: 0.875rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+        
+        .error-prompt-list {
+          padding-left: 1.25rem;
+          margin-top: 0.25rem;
+          list-style-type: disc;
+          color: #B91C1C;
+          font-size: 0.8rem;
         }
         
         .rating-stars {
@@ -956,6 +1113,36 @@
             color: #aaa;
         }
         
+        /* انیمیشن‌ها */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .slide-in {
+            animation: slideIn 0.3s ease forwards;
+        }
+        
+        /* رسپانسیو */
+        @media (max-width: 992px) {
+            .product-details {
+                flex-direction: column;
+            }
+            
+            .main-image {
+                max-height: 400px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -983,10 +1170,6 @@
                 right: -90%;
             }
             
-            .product-details {
-                flex-direction: column;
-            }
-            
             .dropdown-menu {
                 position: static;
                 box-shadow: none;
@@ -1001,10 +1184,342 @@
             }
             
             .filter-sidebar {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                z-index: 1001;
                 margin-left: 0;
-                margin-bottom: 2rem;
+                overflow-y: auto;
+                transition: all 0.3s ease;
+            }
+            
+            .filter-sidebar.active {
+                right: 0;
+            }
+            
+            .filter-toggle {
+                display: block;
+            }
+            
+            .close-filters {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
             }
         }
+        
+        @media (max-width: 576px) {
+            .search-input {
+                width: 150px;
+            }
+            
+            .search-input:focus {
+                width: 180px;
+            }
+            
+            .main-image {
+                max-height: 300px;
+            }
+            
+            .product-image {
+                height: 200px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+/* استایل دکمه تکمیل سفارش */
+.checkout-button {
+  width: 180px;
+  height: 40px;
+  background-image: linear-gradient(rgb(214, 202, 254), rgb(158, 129, 254));
+  border: none;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  box-shadow: 1px 3px 0px rgb(139, 113, 255);
+  transition-duration: .3s;
+  margin: 0 auto;
+}
+
+.checkout-button .cartIcon {
+  width: 14px;
+  height: fit-content;
+}
+
+.checkout-button .cartIcon path {
+  fill: white;
+}
+
+.checkout-button:active {
+  transform: translate(2px ,0px);
+  box-shadow: 0px 1px 0px rgb(139, 113, 255);
+  padding-bottom: 1px;
+}
+/* استایل بخش نظرات جدید */
+.feedback-container {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    margin-top: 2rem;
+}
+
+.feedback-title {
+    text-align: center;
+    color: #64748b;
+    font-size: 1.25rem;
+    font-weight: bold;
+    grid-column: span 6;
+    margin-bottom: 0.5rem;
+}
+
+.feedback-textarea {
+    background-color: #f1f5f9;
+    color: #475569;
+    height: 7rem;
+    border: 1px solid #e2e8f0;
+    grid-column: span 6;
+    resize: none;
+    outline: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.feedback-textarea:focus {
+    border-color: #475569;
+}
+
+.feedback-textarea::placeholder {
+    color: #475569;
+    opacity: 0.5;
+}
+
+.feedback-btn {
+    fill: #475569;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+}
+
+.feedback-btn:hover {
+    border-color: #475569;
+}
+
+.feedback-send-btn {
+    stroke: #475569;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feedback-send-btn:hover {
+    border-color: #475569;
+    color: white;
+}
+/* صفحه پرداخت جدید */
+.payment-container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.payment-hr {
+    height: 1px;
+    background-color: #E5C7C5;
+    border: none;
+}
+
+.payment-card {
+    width: 100%;
+    background: #F4E2DE;
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.payment-title {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-bottom: 1px solid #E5C7C5;
+    font-weight: 700;
+    font-size: 11px;
+    color: #000000;
+}
+
+/* Cart */
+.payment-cart {
+    border-radius: 19px 19px 0px 0px;
+}
+
+.payment-cart .payment-steps {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.payment-cart .payment-steps .payment-step {
+    display: grid;
+    gap: 10px;
+}
+
+.payment-cart .payment-steps .payment-step span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.payment-cart .payment-steps .payment-step p {
+    font-size: 11px;
+    font-weight: 600;
+    color: #000000;
+}
+
+/* Promo */
+.payment-promo form {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    gap: 10px;
+    padding: 0px;
+}
+
+.payment-input_field {
+    width: auto;
+    height: 36px;
+    padding: 0 0 0 12px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #E5C7C5;
+    background-color: #F4E2DE;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+    font-family: inherit;
+}
+
+.payment-input_field:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 2px #F3D2C9;
+    background-color: #F4E2DE;
+}
+
+.payment-promo form button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 18px;
+    gap: 10px;
+    width: 100%;
+    height: 36px;
+    background: #F3D2C9;
+    box-shadow: 0px 0.5px 0.5px #F3D2C9, 0px 1px 0.5px rgba(239, 239, 239, 0.5);
+    border-radius: 5px;
+    border: 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #000000;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Payments */
+.payment-payments .payment-details {
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    padding: 0px;
+    gap: 5px;
+}
+
+.payment-payments .payment-details span:nth-child(odd) {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000000;
+    margin: auto auto auto 0;
+}
+
+.payment-payments .payment-details span:nth-child(even) {
+    font-size: 13px;
+    font-weight: 600;
+    color: #000000;
+    margin: auto 0 auto auto;
+}
+
+.payment-checkout .payment-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 20px;
+    background-color: #ECC2C0;
+}
+
+.payment-price {
+    position: relative;
+    font-size: 22px;
+    color: #2B2B2F;
+    font-weight: 900;
+}
+
+.payment-checkout .payment-checkout-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 36px;
+    background: #F3D2C9;
+    box-shadow: 0px 0.5px 0.5px #E5C7C5, 0px 1px 0.5px rgba(239, 239, 239, 0.5);
+    border-radius: 7px;
+    border: 1px solid #ECC2C0;
+    color: #000000;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.payment-checkout .payment-checkout-btn:hover {
+    background: #e8b8a8;
+}
     </style>
 </head>
 <body>
@@ -1046,10 +1561,33 @@
                     <li><a href="#" id="contact-link">تماس با ما</a></li>
                 </ul>
             </nav>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="جستجوی محصولات...">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
-            </div>
+<div class="searchBox">
+    <input class="searchInput" type="text" name="" placeholder="   جستجوی محصولات...">
+    <button class="searchButton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+            <g clip-path="url(#clip0_2_17)">
+                <g filter="url(#filter0_d_2_17)">
+                    <path d="M23.7953 23.9182L19.0585 19.1814M19.0585 19.1814C19.8188 18.4211 20.4219 17.5185 20.8333 16.5251C21.2448 15.5318 21.4566 14.4671 21.4566 13.3919C21.4566 12.3167 21.2448 11.252 20.8333 10.2587C20.4219 9.2653 19.8188 8.36271 19.0585 7.60242C18.2982 6.84214 17.3956 6.23905 16.4022 5.82759C15.4089 5.41612 14.3442 5.20435 13.269 5.20435C12.1938 5.20435 11.1291 5.41612 10.1358 5.82759C9.1424 6.23905 8.23981 6.84214 7.47953 7.60242C5.94407 9.13789 5.08145 11.2204 5.08145 13.3919C5.08145 15.5634 5.94407 17.6459 7.47953 19.1814C9.01499 20.7168 11.0975 21.5794 13.269 21.5794C15.4405 21.5794 17.523 20.7168 19.0585 19.1814Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" shape-rendering="crispEdges"></path>
+                </g>
+            </g>
+            <defs>
+                <filter id="filter0_d_2_17" x="-0.418549" y="3.70435" width="29.7139" height="29.7139" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                    <feOffset dy="4"></feOffset>
+                    <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                    <feComposite in2="hardAlpha" operator="out"></feComposite>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_17"></feBlend>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_17" result="shape"></feBlend>
+                </filter>
+                <clipPath id="clip0_2_17">
+                    <rect width="28.0702" height="28.0702" fill="white" transform="translate(0.403503 0.526367)"></rect>
+                </clipPath>
+            </defs>
+        </svg>
+    </button>
+</div>
             <div class="cart-icon" id="cart-icon">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-count">0</span>
@@ -1075,7 +1613,12 @@
         <div class="cart-total">
             مجموع: <span id="cart-total-price">0</span> تومان
         </div>
-        <button class="checkout-btn" id="checkout-btn">تکمیل سفارش</button>
+       <button class="checkout-button" id="checkout-btn">
+    تکمیل سفارش
+    <svg class="cartIcon" viewBox="0 0 576 512">
+        <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
+    </svg>
+</button>
     </div>
     
     <!-- لیست علاقه‌مندی‌ها -->
@@ -1097,58 +1640,164 @@
         <!-- صفحه ورود -->
         <div class="page" id="login-page">
             <div class="container">
-                <div class="auth-form">
-                    <h2 class="section-title">ورود به حساب کاربری</h2>
-                    <form id="login-form">
-                        <div class="form-group">
-                            <label for="login-email">ایمیل</label>
-                            <input type="email" id="login-email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="login-password">رمز عبور</label>
-                            <input type="password" id="login-password" class="form-control" required>
-                        </div>
-                        <button type="submit" class="auth-btn">ورود</button>
-                    </form>
-                    <div class="auth-links">
-                        حساب کاربری ندارید؟ <a href="#" id="go-to-register">ثبت نام کنید</a>
-                    </div>
-                </div>
+<div class="auth-form">
+    <h2 class="section-title">ورود به حساب کاربری</h2>
+    <form id="login-form">
+        <div class="flex-column">
+            <label for="login-email">ایمیل</label>
+        </div>
+        <div class="inputForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 32 32" height="20">
+                <g data-name="Layer 3" id="Layer_3">
+                    <path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path>
+                </g>
+            </svg>
+            <input type="email" id="login-email" class="input" placeholder="ایمیل خود را وارد کنید" required>
+        </div>
+
+        <div class="flex-column">
+            <label for="login-password">رمز عبور</label>
+        </div>
+        <div class="inputForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="-64 0 512 512" height="20">
+                <path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path>
+                <path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path>
+            </svg>
+            <input type="password" id="login-password" class="input" placeholder="رمز عبور خود را وارد کنید" required>
+        </div>
+
+        <div class="flex-row">
+            <div>
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">مرا به خاطر بسپار</label>
+            </div>
+            <span class="span" id="forgot-password">رمز عبور را فراموش کرده‌اید؟</span>
+        </div>
+        
+        <button type="submit" class="button-submit">ورود</button>
+        
+        <p class="p">حساب کاربری ندارید؟ <span class="span" id="go-to-register">ثبت نام کنید</span></p>
+        
+        <p class="p line">یا با</p>
+
+        <div class="flex-row">
+            <button class="btn google" type="button">
+                <svg xml:space="preserve" style="enable-background:new 0 0 512 512;" viewBox="0 0 512 512" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="20" version="1.1">
+                    <path d="M113.47,309.408L95.648,375.94l-65.139,1.378C11.042,341.211,0,299.9,0,256c0-42.451,10.324-82.483,28.624-117.732h0.014l57.992,10.632l25.404,57.644c-5.317,15.501-8.215,32.141-8.215,49.456C103.821,274.792,107.225,292.797,113.47,309.408z" style="fill:#FBBB00;"></path>
+                    <path d="M507.527,208.176C510.467,223.662,512,239.655,512,256c0,18.328-1.927,36.206-5.598,53.451c-12.462,58.683-45.025,109.925-90.134,146.187l-0.014-0.014l-73.044-3.727l-10.338-64.535c29.932-17.554,53.324-45.025,65.646-77.911h-136.89V208.176h138.887L507.527,208.176L507.527,208.176z" style="fill:#518EF8;"></path>
+                    <path d="M416.253,455.624l0.014,0.014C372.396,490.901,316.666,512,256,512c-97.491,0-182.252-54.491-225.491-134.681l82.961-67.91c21.619,57.698,77.278,98.771,142.53,98.771c28.047,0,54.323-7.582,76.87-20.818L416.253,455.624z" style="fill:#28B446;"></path>
+                    <path d="M419.404,58.936l-82.933,67.896c-23.335-14.586-50.919-23.012-80.471-23.012c-66.729,0-123.429,42.957-143.965,102.724l-83.397-68.276h-0.014C71.23,56.123,157.06,0,256,0C318.115,0,375.068,22.126,419.404,58.936z" style="fill:#F14336;"></path>
+                </svg>
+                Google
+            </button>
+        </div>
+    </form>
+</div>
             </div>
         </div>
         
         <!-- صفحه ثبت نام -->
         <div class="page" id="register-page">
             <div class="container">
-                <div class="auth-form">
-                    <h2 class="section-title">ثبت نام کاربر جدید</h2>
-                    <form id="register-form">
-                        <div class="form-group">
-                            <label for="register-name">نام کامل</label>
-                            <input type="text" id="register-name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="register-email">ایمیل</label>
-                            <input type="email" id="register-email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="register-phone">تلفن همراه</label>
-                            <input type="tel" id="register-phone" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="register-password">رمز عبور</label>
-                            <input type="password" id="register-password" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="register-confirm-password">تکرار رمز عبور</label>
-                            <input type="password" id="register-confirm-password" class="form-control" required>
-                        </div>
-                        <button type="submit" class="auth-btn">ثبت نام</button>
-                    </form>
-                    <div class="auth-links">
-                        قبلاً ثبت نام کرده‌اید؟ <a href="#" id="go-to-login">وارد شوید</a>
-                    </div>
+<div class="auth-form">
+    <h2 class="section-title">ثبت نام کاربر جدید</h2>
+    <form id="register-form">
+        <div class="flex-column">
+            <label for="register-name">نام کامل</label>
+        </div>
+        <div class="inputForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 32 32" height="20">
+                <g data-name="Layer 3" id="Layer_3">
+                    <path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path>
+                </g>
+            </svg>
+            <input type="text" id="register-name" class="input" placeholder="نام کامل خود را وارد کنید" required>
+        </div>
+
+        <div class="flex-column">
+            <label for="register-email">ایمیل</label>
+        </div>
+        <div class="inputForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 32 32" height="20">
+                <g data-name="Layer 3" id="Layer_3">
+                    <path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path>
+                </g>
+            </svg>
+            <input type="email" id="register-email" class="input" placeholder="ایمیل خود را وارد کنید" required>
+        </div>
+
+        <div class="flex-column">
+            <label for="register-phone">تلفن همراه</label>
+        </div>
+        <div class="inputForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 32 32" height="20">
+                <path d="M22 20c-2 2-2 4-4 4s-4-2-6-4-4-4-4-6 2-2 4-4-4-8-6-8-6 6-6 6c0 4 4.109 12.109 8 16s12 8 16 8c0 0 6-4 6-6s-6-8-8-6z"></path>
+            </svg>
+            <input type="tel" id="register-phone" class="input" placeholder="شماره تلفن خود را وارد کنید" required>
+        </div>
+
+        <div class="flex-column">
+            <label for="register-password">رمز عبور</label>
+        </div>
+        <div class="inputForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="-64 0 512 512" height="20">
+                <path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path>
+                <path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path>
+            </svg>
+            <input type="password" id="register-password" class="input" placeholder="رمز عبور خود را وارد کنید" required>
+        </div>
+
+        <div class="flex-column">
+            <label for="register-confirm-password">تکرار رمز عبور</label>
+        </div>
+        <div class="inputForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="-64 0 512 512" height="20">
+                <path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path>
+                <path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path>
+            </svg>
+            <input type="password" id="register-confirm-password" class="input" placeholder="تکرار رمز عبور خود را وارد کنید" required>
+        </div>
+        
+        <button type="submit" class="button-submit">ثبت نام</button>
+        
+        <p class="p">قبلاً ثبت نام کرده‌اید؟ <span class="span" id="go-to-login">وارد شوید</span></p>
+        <!-- اعتبارسنجی پسورد -->
+        <div class="password-validation">
+          <div class="validation-criteria">
+            <div class="criteria-item" id="length-criteria">
+              <i class="far fa-circle"></i>
+              <span>حداقل ۸ کاراکتر</span>
+            </div>
+            <div class="criteria-item" id="letter-criteria">
+              <i class="far fa-circle"></i>
+              <span>حاوی حروف انگلیسی</span>
+            </div>
+            <div class="criteria-item" id="number-criteria">
+              <i class="far fa-circle"></i>
+              <span>حاوی اعداد</span>
+            </div>
+          </div>
+          
+          <div class="validation-error" id="password-error">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                  <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="error-prompt-container">
+                <p class="error-prompt-heading">رمز عبور شما به اندازه کافی قوی نیست</p>
+                <div class="error-prompt-wrap">
+                  <ul class="error-prompt-list" role="list" id="error-list">
+                    <!-- خطاها اینجا نمایش داده می‌شوند -->
+                  </ul>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+</div>
             </div>
         </div>
         
@@ -1161,8 +1810,7 @@
                             <li><a href="#" class="account-dashboard-link active">داشبورد</a></li>
                             <li><a href="#" class="account-orders-link">سفارشات</a></li>
                             <li><a href="#" class="account-address-link">آدرس‌ها</a></li>
-                            <li><a href="#" class="account-details-link">جزئیات حساب</a></li>
-                            <li><a href="#" class="account-wishlist-link">لیست علاقه‌مندی‌ها</a></li>
+                            <li><a href="#" class="account-details-link">جزئیات حساب</a></li>                            <li><a href="#" class="account-wishlist-link">لیست علاقه‌مندی‌ها</a></li>
                             <li><a href="#" class="account-logout-link">خروج</a></li>
                         </ul>
                     </div>
@@ -1270,8 +1918,15 @@
                 <h2 class="section-title">محصولات ویژه</h2>
                 
                 <!-- فیلتر محصولات -->
+                <button class="filter-toggle" id="filter-toggle">
+                    <i class="fas fa-filter"></i> فیلترها
+                </button>
+                
                 <div style="display: flex; margin-bottom: 2rem;">
-                    <div class="filter-sidebar">
+                    <div class="filter-sidebar" id="filter-sidebar">
+                        <button class="close-filters" id="close-filters">
+                            <i class="fas fa-times"></i>
+                        </button>
                         <div class="filter-group">
                             <h4 class="filter-title">دسته‌بندی</h4>
                             <div class="filter-option">
@@ -1391,9 +2046,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <!-- محصول 4 -->
+                            </div>                            <!-- محصول 4 -->
                             <div class="product-card" data-id="4" data-category="office">
                                 <img src="https://i.ibb.co/C5MH294k/bag3.jpg" alt="کیف اداری زنانه" class="product-image">
                                 <div class="product-info">
@@ -1537,28 +2190,33 @@
                                 <p>کیف خوبی بود ولی رنگش کمی با تصویر متفاوت بود. کیفیت ساخت عالی بود ولی بهتر بود در مورد رنگ دقیق‌تر توضیح داده می‌شد.</p>
                             </div>
                             
-                            <!-- فرم ارسال نظر -->
-                            <div class="review-form">
-                                <h4>ثبت نظر جدید</h4>
-                                <div class="rating-stars">
-                                    <i class="fas fa-star" data-rating="1"></i>
-                                    <i class="fas fa-star" data-rating="2"></i>
-                                    <i class="fas fa-star" data-rating="3"></i>
-                                    <i class="fas fa-star" data-rating="4"></i>
-                                    <i class="fas fa-star" data-rating="5"></i>
-                                </div>
-                                <form>
-                                    <div class="form-group">
-                                        <label for="review-name">نام شما</label>
-                                        <input type="text" id="review-name" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="review-text">نظر شما</label>
-                                        <textarea id="review-text" class="form-control" required></textarea>
-                                    </div>
-                                    <button type="submit" class="auth-btn">ثبت نظر</button>
-                                </form>
-                            </div>
+                            <!-- فرم ارسال نظر --><!-- فرم ارسال نظر جدید -->
+<div class="feedback-container">
+    <h1 class="feedback-title">ارسال نظر</h1>
+    <textarea placeholder="نظر خود را بنویسید..." class="feedback-textarea"></textarea>
+    
+    <button class="feedback-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 512 512">
+            <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm177.6 62.1C192.8 334.5 218.8 352 256 352s63.2-17.5 78.4-33.9c9-9.7 24.2-10.4 33.9-1.4s10.4 24.2 1.4 33.9c-22 23.8-60 49.4-113.6 49.4s-91.7-25.5-113.6-49.4c-9-9.7-8.4-24.9 1.4-33.9s24.9-8.4 33.9 1.4zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path>
+        </svg>
+    </button>
+    
+    <button class="feedback-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 512 512">
+            <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM174.6 384.1c-4.5 12.5-18.2 18.9-30.7 14.4s-18.9-18.2-14.4-30.7C146.9 319.4 198.9 288 256 288s109.1 31.4 126.6 79.9c4.5 12.5-2 26.2-14.4 30.7s-26.2-2-30.7-14.4C328.2 358.5 297.2 336 256 336s-72.2 22.5-81.4 48.1zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path>
+        </svg>
+    </button>
+    
+    <span class="col-span-2"></span>
+    
+    <button class="feedback-send-btn">
+        <svg fill="none" viewBox="0 0 24 24" height="30px" width="30px" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M7.39999 6.32003L15.89 3.49003C19.7 2.22003 21.77 4.30003 20.51 8.11003L17.68 16.6C15.78 22.31 12.66 22.31 10.76 16.6L9.91999 14.08L7.39999 13.24C1.68999 11.34 1.68999 8.23003 7.39999 6.32003Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M10.11 13.6501L13.69 10.0601"></path>
+        </svg>
+        ارسال
+    </button>
+</div>
                         </div>
                     </div>
                 </div>
@@ -1615,11 +2273,9 @@
                         </tr>
                     </tbody>
                 </table>
-                <a href="#" class="back-to-products" id="back-from-compare">بازگشت به محصولات</a>
+                <a href="#" class="back-to-products" id="back-from-compare">بازگشت به صفحه اصلی</a>
             </div>
-        </div>
-        
-        <!-- صفحه درباره ما -->
+        </div>        <!-- صفحه درباره ما -->
         <div class="page" id="about-page">
             <div class="container">
                 <h2 class="section-title">درباره کیف بالی</h2>
@@ -1741,9 +2397,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- صفحه سوالات متداول -->
+        </div>        <!-- صفحه سوالات متداول -->
         <div class="page" id="faq-page">
             <div class="container">
                 <h2 class="section-title">سوالات متداول</h2>
@@ -1824,16 +2478,53 @@
         <div class="page payment-page" id="payment-page">
             <div class="container">
                 <h2 class="section-title">تکمیل سفارش</h2>
-                <div class="payment-info">
-                    <h3>سفارش شما با موفقیت ثبت شد</h3>
-                    <p>لطفاً مبلغ <span id="final-price">0</span> تومان را به شماره حساب زیر واریز نمایید:</p>
-                    <div class="bank-info">
-                        6219-8619-5396-7006
-                    </div>
-                    <p>پس از واریز، تصویر فیش واریزی را به شماره واتساپ 09124109068 ارسال نمایید.</p>
-                    <p>سفارش شما پس از تأیید پرداخت، ارسال خواهد شد.</p>
-                    <a href="#" class="back-to-products" id="back-to-home">بازگشت به صفحه اصلی</a>
+<div class="payment-container">
+    <div class="payment-card payment-cart">
+        <label class="payment-title">تکمیل سفارش</label>
+        <div class="payment-steps">
+            <div class="payment-step">
+                <div>
+                    <span>آدرس ارسال</span>
+                    <p>تهران، خیابان مصباح، پاساژ باغ</p>
+                    <p>فروشگاه کیف بالی</p>
                 </div>
+                <hr class="payment-hr">
+                <div>
+                    <span>روش پرداخت</span>
+                    <p>واریز بانکی</p>
+                    <p>شماره حساب: 6219-8619-5396-7006</p>
+                </div>
+                <hr class="payment-hr">
+                <div class="payment-promo">
+                    <span>کد تخفیف دارید؟</span>
+                    <form class="form">
+                        <input class="payment-input_field" placeholder="کد تخفیف را وارد کنید" type="text">
+                        <button>اعمال</button>
+                    </form>
+                </div>
+                <hr class="payment-hr">
+                <div class="payment-payments">
+                    <span>صورتحساب</span>
+                    <div class="payment-details">
+                        <span>جمع کل:</span>
+                        <span id="payment-subtotal">0 تومان</span>
+                        <span>هزینه ارسال:</span>
+                        <span>رایگان</span>
+                        <span>مالیات:</span>
+                        <span>0 تومان</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-card payment-checkout">
+        <div class="payment-footer">
+            <label class="payment-price" id="payment-total">0 تومان</label>
+            <button class="payment-checkout-btn" id="final-checkout-btn">پرداخت نهایی</button>
+        </div>
+    </div>
+</div>
             </div>
         </div>
     </div>
@@ -1900,9 +2591,7 @@
         <div class="copyright">
             <p>تمامی حقوق برای فروشگاه کیف بالی محفوظ است © 2025</p>
         </div>
-    </footer>
-
-    <script>
+    </footer>    <script>
         // مدیریت سبد خرید
         let cart = [];
         let wishlist = [];
@@ -1928,6 +2617,7 @@
         // باز و بسته کردن سبد خرید
         cartIcon.addEventListener('click', () => {
             cartSidebar.classList.add('active');
+            cartSidebar.classList.add('slide-in');
         });
         
         closeCart.addEventListener('click', () => {
@@ -1937,10 +2627,24 @@
         // باز و بسته کردن لیست علاقه‌مندی‌ها
         wishlistIcon.addEventListener('click', () => {
             wishlistSidebar.classList.add('active');
+            wishlistSidebar.classList.add('slide-in');
         });
         
         closeWishlist.addEventListener('click', () => {
             wishlistSidebar.classList.remove('active');
+        });
+        
+        // مدیریت فیلترها در موبایل
+        const filterToggle = document.getElementById('filter-toggle');
+        const filterSidebar = document.getElementById('filter-sidebar');
+        const closeFilters = document.getElementById('close-filters');
+        
+        filterToggle.addEventListener('click', () => {
+            filterSidebar.classList.add('active');
+        });
+        
+        closeFilters.addEventListener('click', () => {
+            filterSidebar.classList.remove('active');
         });
         
         // افزودن محصول به سبد خرید
@@ -1961,6 +2665,7 @@
             
             updateCart();
             cartSidebar.classList.add('active');
+            cartSidebar.classList.add('slide-in');
             
             // نمایش اعلان
             showAlert(`محصول ${name} به سبد خرید اضافه شد!`);
@@ -2170,9 +2875,7 @@
                     productPage.style.display = 'block';
                 }
             });
-        });
-        
-        // افزودن به سبد خرید از صفحه محصول
+        });        // افزودن به سبد خرید از صفحه محصول
         productPageAddToCart.addEventListener('click', () => {
             const id = productPageAddToCart.getAttribute('data-id');
             const name = productPageAddToCart.getAttribute('data-name');
@@ -2203,24 +2906,25 @@
         // بازگشت به صفحه محصولات
         backToProducts.addEventListener('click', (e) => {
             e.preventDefault();
-            showProductsPage();
+            hideAllPages();
+pages.payment.style.display = 'block';
         });
         
         // مدیریت صفحات
-        const pages = {
-            home: document.getElementById('products-section'),
-            product: document.getElementById('product-page'),
-            about: document.getElementById('about-page'),
-            contact: document.getElementById('contact-page'),
-            faq: document.getElementById('faq-page'),
-            category: document.getElementById('category-page'),
-            payment: document.getElementById('payment-page'),
-            login: document.getElementById('login-page'),
-            register: document.getElementById('register-page'),
-            account: document.getElementById('account-page'),
-            blog: document.getElementById('blog-page'),
-            compare: document.getElementById('compare-page')
-        };
+const pages = {
+    home: document.getElementById('products-section'),
+    product: document.getElementById('product-page'),
+    about: document.getElementById('about-page'),
+    contact: document.getElementById('contact-page'),
+    faq: document.getElementById('faq-page'),
+    category: document.getElementById('category-page'),
+    payment: document.getElementById('payment-page'),
+    login: document.getElementById('login-page'),
+    register: document.getElementById('register-page'),
+    account: document.getElementById('account-page'),
+    blog: document.getElementById('blog-page'),
+    compare: document.getElementById('compare-page')
+};
         
         function hideAllPages() {
             Object.values(pages).forEach(page => {
@@ -2394,30 +3098,114 @@
                     }
                 });
             });
+        }        
+// مدیریت صفحه پرداخت
+checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+        showAlert('سبد خرید شما خالی است!');
+        return;
+    }
+    
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    // به‌روزرسانی مقادیر در صفحه پرداخت جدید
+    document.getElementById('payment-subtotal').textContent = total.toLocaleString() + ' تومان';
+    document.getElementById('payment-total').textContent = total.toLocaleString() + ' تومان';
+    
+    hideAllPages();
+    document.getElementById('payment-page').style.display = 'block';
+});
+// مدیریت دکمه پرداخت نهایی
+document.getElementById('final-checkout-btn').addEventListener('click', () => {
+    showAlert('سفارش شما با موفقیت ثبت شد! لطفاً مبلغ را واریز کنید.');
+    cart = [];
+    updateCart();
+    showProductsPage();
+});
+        // اعتبارسنجی پسورد
+        function validatePassword(password) {
+          const errors = [];
+          const criteria = {
+            hasMinLength: password.length >= 8,
+            hasLetter: /[a-zA-Z]/.test(password),
+            hasNumber: /\d/.test(password)
+          };
+          
+          if (!criteria.hasMinLength) errors.push('رمز عبور باید حداقل ۸ کاراکتر باشد');
+          if (!criteria.hasLetter) errors.push('رمز عبور باید شامل حروف انگلیسی باشد');
+          if (!criteria.hasNumber) errors.push('رمز عبور باید شامل اعداد باشد');
+          
+          return { isValid: errors.length === 0, errors, criteria };
         }
-        
-        // مدیریت صفحه پرداخت
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                showAlert('سبد خرید شما خالی است!');
-                return;
-            }
-            
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            document.getElementById('final-price').textContent = total.toLocaleString();
-            
-            hideAllPages();
-            pages.payment.style.display = 'block';
+
+        // به‌روزرسانی نمایش معیارهای پسورد
+        function updatePasswordCriteria(criteria) {
+          document.getElementById('length-criteria').className = criteria.hasMinLength ? 
+            'criteria-item valid' : 'criteria-item invalid';
+          document.getElementById('letter-criteria').className = criteria.hasLetter ? 
+            'criteria-item valid' : 'criteria-item invalid';
+          document.getElementById('number-criteria').className = criteria.hasNumber ? 
+            'criteria-item valid' : 'criteria-item invalid';
+          
+          // آیکون‌ها را به‌روزرسانی کنید
+          const icons = {
+            'length-criteria': criteria.hasMinLength ? 'fas fa-check-circle' : 'far fa-circle',
+            'letter-criteria': criteria.hasLetter ? 'fas fa-check-circle' : 'far fa-circle',
+            'number-criteria': criteria.hasNumber ? 'fas fa-check-circle' : 'far fa-circle'
+          };
+          
+          for (const [id, iconClass] of Object.entries(icons)) {
+            document.getElementById(id).querySelector('i').className = iconClass;
+          }
+        }
+
+        // نمایش خطاهای پسورد
+        function showPasswordErrors(errors) {
+          const errorList = document.getElementById('error-list');
+          const errorContainer = document.getElementById('password-error');
+          
+          errorList.innerHTML = '';
+          errors.forEach(error => {
+            const li = document.createElement('li');
+            li.textContent = error;
+            errorList.appendChild(li);
+          });
+          
+          errorContainer.classList.add('show');
+        }
+
+        // مخفی کردن خطاهای پسورد
+        function hidePasswordErrors() {
+          document.getElementById('password-error').classList.remove('show');
+        }
+
+        // اضافه کردن event listener به فیلد پسورد
+        document.getElementById('register-password').addEventListener('input', function() {
+          const password = this.value;
+          const validation = validatePassword(password);
+          
+          updatePasswordCriteria(validation.criteria);
+          
+          if (password.length > 0 && !validation.isValid) {
+            showPasswordErrors(validation.errors);
+          } else {
+            hidePasswordErrors();
+          }
         });
-        
-        // بازگشت به خانه از صفحه پرداخت
-        document.getElementById('back-to-home').addEventListener('click', (e) => {
-            e.preventDefault();
-            cart = [];
-            updateCart();
-            showProductsPage();
+
+        // اضافه کردن event listener به فیلد تکرار پسورد
+        document.getElementById('register-confirm-password').addEventListener('input', function() {
+          const password = document.getElementById('register-password').value;
+          const confirmPassword = this.value;
+          
+          if (confirmPassword.length > 0 && password !== confirmPassword) {
+            document.getElementById('password-error').classList.add('show');
+            document.getElementById('error-list').innerHTML = '<li>رمز عبور و تکرار آن مطابقت ندارند</li>';
+          } else if (password === confirmPassword) {
+            hidePasswordErrors();
+          }
         });
-        
+
         // مدیریت سیستم ورود/ثبت نام
         document.getElementById('login-link').addEventListener('click', (e) => {
             e.preventDefault();
@@ -2477,31 +3265,39 @@
         
         // فرم ثبت نام
         document.getElementById('register-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('register-name').value;
-            const email = document.getElementById('register-email').value;
-            const phone = document.getElementById('register-phone').value;
-            const password = document.getElementById('register-password').value;
-            const confirmPassword = document.getElementById('register-confirm-password').value;
-            
-            if (password !== confirmPassword) {
-                showAlert('رمز عبور و تکرار آن مطابقت ندارند!');
-                return;
-            }
-            
-            // در حالت واقعی اینجا باید با سرور ارتباط برقرار شود
-            currentUser = {
-                name: name,
-                email: email,
-                phone: phone
-            };
-            
-            showAlert('ثبت نام با موفقیت انجام شد!');
-            hideAllPages();
-            showProductsPage();
-            
-            // به‌روزرسانی بخش کاربری
-            document.getElementById('account-name').textContent = currentUser.name;
+          e.preventDefault();
+          const name = document.getElementById('register-name').value;
+          const email = document.getElementById('register-email').value;
+          const phone = document.getElementById('register-phone').value;
+          const password = document.getElementById('register-password').value;
+          const confirmPassword = document.getElementById('register-confirm-password').value;
+          
+          // اعتبارسنجی پسورد
+          const passwordValidation = validatePassword(password);
+          if (!passwordValidation.isValid) {
+            showPasswordErrors(passwordValidation.errors);
+            return;
+          }
+          
+          if (password !== confirmPassword) {
+            document.getElementById('password-error').classList.add('show');
+            document.getElementById('error-list').innerHTML = '<li>رمز عبور و تکرار آن مطابقت ندارند</li>';
+            return;
+          }
+          
+          // در حالت واقعی اینجا باید با سرور ارتباط برقرار شود
+          currentUser = {
+            name: name,
+            email: email,
+            phone: phone
+          };
+          
+          showAlert('ثبت نام با موفقیت انجام شد!');
+          hideAllPages();
+          showProductsPage();
+          
+          // به‌روزرسانی بخش کاربری
+          document.getElementById('account-name').textContent = currentUser.name;
         });
         
         // مدیریت حساب کاربری
@@ -2633,9 +3429,9 @@
             showProductsPage();
         });
         
-        // سیستم جستجو
-        const searchInput = document.querySelector('.search-input');
-        const searchBtn = document.querySelector('.search-btn');
+// سیستم جستجو
+const searchInput = document.querySelector('.searchInput');
+const searchBtn = document.querySelector('.searchButton');
         
         searchBtn.addEventListener('click', () => {
             const query = searchInput.value.trim().toLowerCase();
@@ -2669,23 +3465,57 @@
                 searchBtn.click();
             }
         });
-        
+        // مدیریت لینک‌های فرم جدید
+document.getElementById('go-to-register').addEventListener('click', (e) => {
+    e.preventDefault();
+    hideAllPages();
+    pages.register.style.display = 'block';
+});
+
+document.getElementById('go-to-login').addEventListener('click', (e) => {
+    e.preventDefault();
+    hideAllPages();
+    pages.login.style.display = 'block';
+});
+
+// مدیریت فراموشی رمز عبور
+document.getElementById('forgot-password').addEventListener('click', (e) => {
+    e.preventDefault();
+    showAlert('بازیابی رمز عبور در حال توسعه است!');
+});
+
+// مدیریت دکمه Google
+document.querySelector('.btn.google').addEventListener('click', (e) => {
+    e.preventDefault();
+    showAlert('ورود با Google در حال توسعه است!');
+});
+// مدیریت فرم ارسال نظر جدید
+document.querySelector('.feedback-send-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    const feedbackText = document.querySelector('.feedback-textarea').value;
+    
+    if (!feedbackText.trim()) {
+        showAlert('لطفاً نظر خود را بنویسید!');
+        return;
+    }
+    
+    showAlert('نظر شما با موفقیت ثبت شد!');
+    document.querySelector('.feedback-textarea').value = '';
+});
+
+// مدیریت دکمه‌های ایموجی
+document.querySelectorAll('.feedback-btn').forEach((btn, index) => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const emojis = ['😊', '😍', '😎', '👍', '❤️'];
+        const textarea = document.querySelector('.feedback-textarea');
+        textarea.value += emojis[index] + ' ';
+        textarea.focus();
+    });
+});
+
         // نمایش صفحه محصولات به صورت پیش‌فرض
         showProductsPage();
-        
-        // افزودن استایل برای انیمیشن اعلان
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-                to { opacity: 1; transform: translateX(-50%) translateY(0); }
-            }
-            @keyframes fadeOut {
-                from { opacity: 1; transform: translateX(-50%) translateY(0); }
-                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
