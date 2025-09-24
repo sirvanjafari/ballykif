@@ -6,6 +6,90 @@
     <title>کیف بالی | فروشگاه تخصصی کیف‌های زنانه</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+/* استایل جدید برای بخش تماس */
+.contact-info-modern {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(45deg, #e83e8c, #6f42c1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-label {
+    font-size: 0.75rem;
+    color: #ccc;
+    margin-bottom: 2px;
+}
+
+.contact-number {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* رسپانسیو برای موبایل */
+@media (max-width: 768px) {
+    .contact-info-modern {
+        gap: 15px;
+    }
+    
+    .contact-item {
+        gap: 8px;
+    }
+    
+    .contact-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+    
+    .contact-label {
+        font-size: 0.7rem;
+    }
+    
+    .contact-number {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-info-modern {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .contact-label {
+        display: none;
+    }
+}
         :root {
             --primary-color: #e83e8c;
             --secondary-color: #6f42c1;
@@ -127,6 +211,81 @@
         nav ul li:hover .dropdown-menu {
             display: block;
         }
+             /* استایل جدید برای بخش احراز هویت */
+.auth-links-modern {
+    display: flex;
+    align-items: center;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.auth-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.login-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.register-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    color: white;
+    border: 2px solid #ff6b6b;
+}
+
+.register-btn:hover {
+    background: linear-gradient(45deg, #ff5252, #e53935);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.auth-btn i {
+    font-size: 1.1rem;
+}
+
+/* رسپانسیو برای موبایل */
+@media (max-width: 768px) {
+    .auth-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .auth-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .auth-btn span {
+        display: none;
+    }
+    
+    .auth-btn i {
+        font-size: 1rem;
+        margin: 0;
+    }
+}
         /* جستجو */
 .searchBox {
     display: flex;
@@ -1526,14 +1685,38 @@
     <!-- نوار بالایی -->
     <div class="top-bar">
         <div class="top-bar-container">
-            <div class="contact-info">
-                <i class="fas fa-phone"></i> 021-33928768 | 
-                <i class="fas fa-mobile-alt"></i> 09124109068
-            </div>
-            <div class="auth-links">
-                <a href="#" id="login-link"><i class="fas fa-user"></i> ورود</a> | 
-                <a href="#" id="register-link"><i class="fas fa-user-plus"></i> ثبت نام</a>
-            </div>
+<div class="contact-info-modern">
+    <div class="contact-item">
+        <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-details">
+            <span class="contact-label">تلفن فروشگاه</span>
+            <span class="contact-number">021-33928768</span>
+        </div>
+    </div>
+    <div class="contact-item">
+        <div class="contact-icon">
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="contact-details">
+            <span class="contact-label">پشتیبانی</span>
+            <span class="contact-number">09124109068</span>
+        </div>
+    </div>
+</div>
+<div class="auth-links-modern">
+    <div class="auth-buttons">
+        <a href="#" id="login-link" class="auth-btn login-btn">
+            <i class="fas fa-user-circle"></i>
+            <span>ورود به حساب</span>
+        </a>
+        <a href="#" id="register-link" class="auth-btn register-btn">
+            <i class="fas fa-user-plus"></i>
+            <span>ثبت نام جدید</span>
+        </a>
+    </div>
+</div>
         </div>
     </div>
     
@@ -1562,7 +1745,7 @@
                 </ul>
             </nav>
 <div class="searchBox">
-    <input class="searchInput" type="text" name="" placeholder="   جستجوی محصولات...">
+    <input class="searchInput" type="text" name="" placeholder="   جستجوی محصولات ...">
     <button class="searchButton">
         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
             <g clip-path="url(#clip0_2_17)">
